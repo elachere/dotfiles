@@ -1,0 +1,14 @@
+advanced-open-file
+atom-ignore
+auto-indent
+busy-signal
+django-templates
+intentions
+kite
+linter
+linter-flake8
+linter-ui-default
+project-folder
+python-indent
+tab-switcher
+tree-ignore

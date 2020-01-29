@@ -1,0 +1,13 @@
+'atom-text-editor':
+  'alt': ' '
+  'alt-right': 'pane:show-next-item'
+  'alt-left': 'pane:show-previous-item'
+  'ctrl-.': 'editor:move-to-first-character-of-line'
+  'ctrl-shift-.': 'editor:select-to-beginning-of-line'
+
+'body':
+  'alt-right': 'pane:show-next-item'
+  'alt-left': 'pane:show-previous-item'
+
+'atom-workspace:not([mini])':
+  'ctrl-p': 'project-folder:add'

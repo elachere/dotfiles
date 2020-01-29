@@ -1,0 +1,52 @@
+"*":
+  "advanced-new-file":
+    showFilesInAutoComplete: true
+    suggestCurrentFilePath: true
+  "atom-ignore": {}
+  core:
+    disabledPackages: [
+      "kite"
+    ]
+    ignoredNames: [
+      ".git"
+      ".hg"
+      ".svn"
+      ".DS_Store"
+      "._*"
+      "Thumbs.db"
+      "desktop.ini"
+      "*.pyc"
+    ]
+    telemetryConsent: "limited"
+    useTreeSitterParsers: false
+  "django-templates":
+    defaultToDjangoTemplatesForFilePathsContaining: [
+      "~/dev/tutorials/django"
+    ]
+  editor:
+    autoIndent: false
+  "exception-reporting":
+    userId: "97a5f99c-3df5-4eb7-90fe-c96e1fc9b095"
+  kite:
+    showWelcomeNotificationOnStartup: false
+  "linter-ui-default": {}
+  "project-folder":
+    projectRootDirectories: [
+      "~/dev/"
+      "~/dev/training"
+      "~/dev/github"
+      "~/dev/interviews"
+    ]
+  "tree-view":
+    hideIgnoredNames: true
+    hideVcsIgnoredFiles: true
+  welcome:
+    showOnStartup: false
+".django.python.source":
+  editor:
+    autoIndentOnPaste: true
+".python.source":
+  editor:
+    autoIndent: true
+    autoIndentOnPaste: true
+    tabType: "soft"
