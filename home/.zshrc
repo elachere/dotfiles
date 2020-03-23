@@ -5,8 +5,9 @@
 # gotop: https://github.com/cjbassi/gotop
 # lsd: https://github.com/Peltoche/lsd
 # Flat remix color scheme: bash -c "$(curl -sLo- https://git.io/JvvDs)"
+# i3-awesome-status-bar https://github.com/greshake/i3status-rust
 
-# apt: feh, 
+# apt: feh,
 
 # -------------------------------- POWERLEVEL ---------------------------------
 
