@@ -6,6 +6,8 @@
 # lsd: https://github.com/Peltoche/lsd
 # Flat remix color scheme: bash -c "$(curl -sLo- https://git.io/JvvDs)"
 
+# apt: feh, 
+
 # -------------------------------- POWERLEVEL ---------------------------------
 
 POWERLEVEL9K_MODE=nerdfont-complete
