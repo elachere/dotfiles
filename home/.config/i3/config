@@ -173,6 +173,10 @@ bar {
 focus_follows_mouse no
 exec setxkbmap gb &
 exec –no-startup-id xrandr –output HDMI1 –right-of HDMI2 –auto
+exec feh --bg-fill $HOME/Pictures/wallpaper.jpg
+exec --no-startup-id "i3-msg 'workspace 1; append_layout /home/elachere/.config/i3/layouts/workspace-1.json'"
+exec --no-startup-id "i3-msg 'workspace 2; append_layout /home/elachere/.config/i3/layouts/workspace-2.json'"
+exec --no-startup-id "i3-msg 'workspace 3; append_layout /home/elachere/.config/i3/layouts/workspace-3.json'"
 
 # Suspend management
 

@@ -28,8 +28,11 @@ use_bits = false
 #
 [[block]]
 block = "disk_space"
+path = '/'
+alias = ''
 info_type = "available"
 unit = "GB"
+show_percentage = true
 interval = 20
 warning = 20.0
 alert = 10.0

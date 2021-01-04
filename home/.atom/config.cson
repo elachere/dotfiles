@@ -2,8 +2,14 @@
   "advanced-new-file":
     showFilesInAutoComplete: true
     suggestCurrentFilePath: true
+  "atom-beautify":
+    general:
+      _analyticsUserId: "e4772621-9df3-446d-a557-b2fb89f50f8f"
+    python:
+      indent_size: 4
   "atom-ignore": {}
   core:
+    autoHideMenuBar: true
     disabledPackages: [
       "kite"
     ]
@@ -18,24 +24,38 @@
       "*.pyc"
     ]
     telemetryConsent: "limited"
+    themes: [
+      "pristine-ui"
+      "oceanic-next"
+    ]
     useTreeSitterParsers: false
   "django-templates":
     defaultToDjangoTemplatesForFilePathsContaining: [
       "~/dev/tutorials/django"
     ]
   editor:
-    autoIndent: false
+    tabLength: 4
+    tabType: "soft"
   "exception-reporting":
     userId: "97a5f99c-3df5-4eb7-90fe-c96e1fc9b095"
   kite:
     showWelcomeNotificationOnStartup: false
+  "language-babel":
+    autoIndentJSX: true
+  "linter-flake8":
+    ignoreErrorCodes: [
+      "E501"
+    ]
   "linter-ui-default": {}
+  "pristine-ui": {}
   "project-folder":
     projectRootDirectories: [
       "~/dev/"
       "~/dev/training"
       "~/dev/github"
+      "~/dev/gitlab"
       "~/dev/interviews"
+      "~/dev/training/tutorials"
     ]
   "tree-view":
     hideIgnoredNames: true
@@ -45,8 +65,11 @@
 ".django.python.source":
   editor:
     autoIndentOnPaste: true
+".python.regexp.source":
+  editor:
+    tabLength: 3
 ".python.source":
   editor:
     autoIndent: true
-    autoIndentOnPaste: true
+    autoIndentOnPaste: false
     tabType: "soft"

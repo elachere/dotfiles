@@ -1,14 +1,3 @@
-# ------------------------ Installation links ---------------------------------
-# oh-my-zsh: https://ohmyz.sh/
-# powerlevel10k: https://github.com/romkatv/powerlevel10k
-# nerdfonts: https://github.com/ryanoasis/nerd-fonts
-# gotop: https://github.com/cjbassi/gotop
-# lsd: https://github.com/Peltoche/lsd
-# Flat remix color scheme: bash -c "$(curl -sLo- https://git.io/JvvDs)"
-# i3-awesome-status-bar https://github.com/greshake/i3status-rust
-
-# apt: feh,
-
 # -------------------------------- POWERLEVEL ---------------------------------
 
 POWERLEVEL9K_MODE=nerdfont-complete
@@ -43,29 +32,36 @@ POWERLEVEL9K_CUSTOM_OS_ICON='echo  $(whoami) '
 POWERLEVEL9K_CUSTOM_OS_ICON_BACKGROUND=red
 POWERLEVEL9K_CUSTOM_OS_ICON_FOREGROUND=white
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_os_icon ssh root_indicator dir dir_writable vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time status background_jobs time ram virtualenv)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time virtualenv)
+POWERLEVEL9K_TRANSIENT_PROMPT=always
 
 # Plugins
-plugins=(git virtualenv)
+plugins=(git virtualenv docker docker-compose)
 
 
 export ZSH=/home/elachere/.oh-my-zsh
-export EDITOR="nano"
+
+export ANDROID_SDK_ROOT=${HOME}/sdk-tools
+export EDITOR="atom"
+export BUDGEA_TOKEN="2"
+export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
+export ORACLE_HOME=/opt/oracle/instantclient_12_1
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ORACLE_HOME
 
 export PYTHONPATH=$PYTHONPATH:$HOME/python/
 export PYTHONPATH=$PYTHONPATH:$HOME/dev/
 export PYTHONPATH=$PYTHONPATH:$HOME/dev/training/
 
-export PATH=$PATH:$HOME/bin/
-export PATH=$PATH:$HOME/.local/bin/
-export PATH=$PATH:/usr/sbin/
 export PATH=$PATH:/sbin
-export PATH=$PATH:$HOME/dev/backend/scripts
-export PATH=$PATH:$HOME/dev/weboob/scripts
+export PATH=$PATH:/usr/sbin/
+export PATH=$PATH:/usr/lib/postgresql/11/bin/
+export PATH=$PATH:$HOME/.local/bin/
+export PATH=$PATH:$HOME/bin/
+export PATH=$PATH:$HOME/.poetry/bin
+export PATH=$PATH:$HOME/dev/proxynet/scripts
 export PATH=${PATH}:${ANDROID_SDK_ROOT}/tools
 export PATH=${PATH}:${ANDROID_SDK_ROOT}/tools/bin
 export PATH=${PATH}:${ANDROID_SDK_ROOT}/platform-tools/
-export PATH=$PATH:$HOME/dev/proxynet/scripts
 
 # virtualenvwrapper
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
@@ -93,15 +89,20 @@ alias ls='lsd'
 alias l='ls -l'
 alias la='ls -la'
 alias lt='l --sort newest'
-alias lock='i3lock -c 110000 -n'
 alias grep='grep --color=auto'
 alias prettyjson='python -m json.tool'
 alias off='sudo shutdown -h now'
+alias adb="~/sdk-tools/platform-tools/adb"
+alias mobsf="python3 ~/Android/Sdk/tools/mobsf/manage.py runserver"
+alias jadx="/home/elachere/dev/jadx/build/jadx/bin/jadx"
 alias atomb="/usr/bin/atom-beta -a"
 alias wifi='nmtui'
 alias audiocontrol='pavucontrol'
 alias hdmicast='xrandr --output HDMI-1 --auto --right-of eDP-1'
 alias top='gotop'
+alias jcurl="curl -H 'Content-Type: application/json'"
+alias raspedit="ssh -R 52698:localhost:52698 pi@raspberrypi.local"
+alias awsdb="aws dynamodb --endpoint-url http://localhost:4569"
 
 # -------------------------------- FUNCTIONS ---------------------------------
 
@@ -109,6 +110,13 @@ function set_brightness() {
   xrandr --output eDP-1 --brightness $1
 }
 
-function tryMR(){
-  git fetch $1 merge-requests/$2/head:MR_$2 && git checkout MR_$2
+function ggb() {
+    git grep -n $1 | while IFS=: read i j k; do git blame -L $j,$j $i | cat; done
 }
+
+function tryMR(){
+  git fetch prod merge-requests/$1/head:MR_$1 && git checkout MR_$1
+}
+
+# Scaleway CLI autocomplete initialization.
+eval "$(scw autocomplete script shell=zsh)"
