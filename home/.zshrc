@@ -1,3 +1,13 @@
+# ------------------------ Installation links ---------------------------------
+# oh-my-zsh: https://ohmyz.sh/
+# powerlevel10k: https://github.com/romkatv/powerlevel10k
+# nerdfonts: https://github.com/ryanoasis/nerd-fonts
+# gotop: https://github.com/cjbassi/gotop
+# lsd: https://github.com/Peltoche/lsd
+# Flat remix color scheme: bash -c "$(curl -sLo- https://git.io/JvvDs)"
+# i3-awesome-status-bar https://github.com/greshake/i3status-rust
+
+# apt: feh,
 # -------------------------------- POWERLEVEL ---------------------------------
 
 POWERLEVEL9K_MODE=nerdfont-complete
