@@ -40,13 +40,7 @@ plugins=(git virtualenv docker docker-compose)
 
 
 export ZSH=/home/elachere/.oh-my-zsh
-
-export ANDROID_SDK_ROOT=${HOME}/sdk-tools
 export EDITOR="atom"
-export BUDGEA_TOKEN="2"
-export JAVA_HOME=$(readlink -f /usr/bin/javac | sed "s:/bin/javac::")
-export ORACLE_HOME=/opt/oracle/instantclient_12_1
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ORACLE_HOME
 
 export PYTHONPATH=$PYTHONPATH:$HOME/python/
 export PYTHONPATH=$PYTHONPATH:$HOME/dev/
@@ -58,10 +52,6 @@ export PATH=$PATH:/usr/lib/postgresql/11/bin/
 export PATH=$PATH:$HOME/.local/bin/
 export PATH=$PATH:$HOME/bin/
 export PATH=$PATH:$HOME/.poetry/bin
-export PATH=$PATH:$HOME/dev/proxynet/scripts
-export PATH=${PATH}:${ANDROID_SDK_ROOT}/tools
-export PATH=${PATH}:${ANDROID_SDK_ROOT}/tools/bin
-export PATH=${PATH}:${ANDROID_SDK_ROOT}/platform-tools/
 
 # virtualenvwrapper
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
@@ -117,6 +107,3 @@ function ggb() {
 function tryMR(){
   git fetch prod merge-requests/$1/head:MR_$1 && git checkout MR_$1
 }
-
-# Scaleway CLI autocomplete initialization.
-eval "$(scw autocomplete script shell=zsh)"
