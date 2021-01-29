@@ -62,9 +62,12 @@ export PATH=$PATH:/usr/lib/postgresql/11/bin/
 export PATH=$PATH:$HOME/.local/bin/
 export PATH=$PATH:$HOME/bin/
 export PATH=$PATH:$HOME/.poetry/bin
+export PATH=$PATH:/snap/bin
+export PATH=$PATH:/home/elachere/.cargo/bin
+export PATH=$PATH:/home/elachere/.ebcli-virtual-env/executables
 
 # virtualenvwrapper
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3.8
 export VIRTUAL_ENV_DISABLE_PROMPT=0
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/dev
@@ -84,11 +87,10 @@ source $ZSH/oh-my-zsh.sh
 source /home/elachere/.local/bin/virtualenvwrapper.sh
 
 # -------------------------------- ALIASES ---------------------------------
-
 alias ls='lsd'
-alias l='ls -l'
-alias la='ls -la'
-alias lt='l --sort newest'
+alias l='lsd -l'
+alias la='lsd -la'
+alias lt='l -t'
 alias grep='grep --color=auto'
 alias prettyjson='python -m json.tool'
 alias off='sudo shutdown -h now'
@@ -99,10 +101,13 @@ alias atomb="/usr/bin/atom-beta -a"
 alias wifi='nmtui'
 alias audiocontrol='pavucontrol'
 alias hdmicast='xrandr --output HDMI-1 --auto --right-of eDP-1'
+alias hubcast='xrandr --output DP-1 --auto --right-of eDP-1'
+alias monoscreen='xrandr --output DP-1 --off && xrandr --output HDMI-1 --off'
 alias top='gotop'
 alias jcurl="curl -H 'Content-Type: application/json'"
 alias raspedit="ssh -R 52698:localhost:52698 pi@raspberrypi.local"
 alias awsdb="aws dynamodb --endpoint-url http://localhost:4569"
+alias about="inxi -Fx"
 
 # -------------------------------- FUNCTIONS ---------------------------------
 
@@ -116,4 +121,24 @@ function ggb() {
 
 function tryMR(){
   git fetch prod merge-requests/$1/head:MR_$1 && git checkout MR_$1
+}
+
+function protect() {
+    curl http://localhost:5000/v2/$1 --header 'Authorization: Cerbere' --header 'x-api-key: -y@]Yes1smvFhn<9`Acl*8.jg-ulQ' --header 'Asset: 1045'
+}
+
+function docker_protect() {
+    curl http://localhost:3000/v2/$1 --header 'Authorization: Cerbere' --header 'x-api-key: -y@]Yes1smvFhn<9`Acl*8.jg-ulQ' --header 'Asset: 1045'
+}
+
+function mysqldevprotect() {
+    mysqlsh --mc --user=etienne --password=8OL584977TS9Tiw1qXOgRhsg --port=3306 --host protect-0.cpkatuazgai5.eu-west-1.rds.amazonaws.com
+}
+
+function mysqldevhermes() {
+    mysqlsh --mc --user=etienne --password=8OL584977TS9Tiw1qXOgRhsg --port=3306 --host hermes-cluster.cluster-cpkatuazgai5.eu-west-1.rds.amazonaws.com
+}
+
+function checkrebase () {
+    git checkout $1 && git pull origin $2 --rebase
 }

@@ -17,11 +17,8 @@ max_width = 50
 #
 [[block]]
 block = "net"
-device = "wlp5s0"
-ssid = true
-signal_strength = true
-ip = true
-speed_up = false
+device = "wlp0s20f3"
+format="{ip} {speed_up} {speed_down}"
 graph_down = true
 interval = 3
 use_bits = false
@@ -29,13 +26,9 @@ use_bits = false
 [[block]]
 block = "disk_space"
 path = '/'
-alias = ''
-info_type = "available"
 unit = "GB"
-show_percentage = true
-interval = 20
-warning = 20.0
-alert = 10.0
+info_type = "available"
+format = "{used} / {available} {unit} ({percentage})"
 #
 [[block]]
 block = "memory"
@@ -51,7 +44,7 @@ interval = 1
 block = "temperature"
 collapsed = false
 interval = 10
-format = "{min}° min, {max}° max, {average}° avg"
+format = "{max}° max, {average}° avg"
 chip = "*-isa-*"
 #
 [[block]]
