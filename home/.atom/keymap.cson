@@ -2,8 +2,10 @@
   'alt': ' '
   'alt-right': 'pane:show-next-item'
   'alt-left': 'pane:show-previous-item'
-  'ctrl-.': 'editor:move-to-first-character-of-line'
-  'ctrl-shift-.': 'editor:select-to-beginning-of-line'
+  'ctrl-alt-left': 'editor:move-to-first-character-of-line'
+  'ctrl-alt-right': 'editor:move-to-end-of-line'
+  'ctrl-alt-shift-right': 'editor:select-to-end-of-line'
+  'ctrl-alt-shift-left': 'editor:select-to-first-character-of-line'
 
 'body':
   'alt-right': 'pane:show-next-item'
@@ -11,3 +13,4 @@
 
 'atom-workspace:not([mini])':
   'ctrl-p': 'project-folder:add'
+  'ctrl-shift-o': 'tree-view-git-modified:openAll'
